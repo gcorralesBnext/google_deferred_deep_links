@@ -79,6 +79,9 @@ class GoogleDeferredDeepLinksPlugin: FlutterPlugin, MethodCallHandler {
             context.getSharedPreferences("google_ads_deferred_deep_link.mark", Context.MODE_PRIVATE)
     val deepLink: String? = sp.getString("deeplink", null)
     val isEmpty = TextUtils.isEmpty(deepLink)
+
+    Log.d("GoogleDeferredDeepLinksPlugin", "Estado de isEmpty : $isEmpty")
+
     if (!isEmpty) {
       val cTime = sp.getLong("timestamp", 0L)
       val markTime = markSP.getLong("timestamp", -1L)
