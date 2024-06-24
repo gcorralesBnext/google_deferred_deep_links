@@ -39,7 +39,12 @@ class GoogleDeferredDeepLinksPlugin: FlutterPlugin, MethodCallHandler {
               Context.MODE_PRIVATE
       )
       val isEmpty = deepLinkChecker(sp)
+
+      Log.d("GoogleDeferredDeepLinksPlugin", "Estado de isEmpty en la Funcion onStart : $isEmpty")
+
       if (isEmpty) {
+        Log.d("GoogleDeferredDeepLinksPlugin", "Estado de listener en la Funcion onStart : $listener")
+
         if (listener != null) {
           sp.unregisterOnSharedPreferenceChangeListener(listener);
         }
@@ -80,7 +85,7 @@ class GoogleDeferredDeepLinksPlugin: FlutterPlugin, MethodCallHandler {
     val deepLink: String? = sp.getString("deeplink", null)
     val isEmpty = TextUtils.isEmpty(deepLink)
 
-    Log.d("GoogleDeferredDeepLinksPlugin", "Estado de isEmpty : $isEmpty")
+    Log.d("GoogleDeferredDeepLinksPlugin", "Estado de isEmpty en la Funcion deepLinkChecker : $isEmpty")
 
     if (!isEmpty) {
       val cTime = sp.getLong("timestamp", 0L)
