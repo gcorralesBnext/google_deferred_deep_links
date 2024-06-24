@@ -31,7 +31,8 @@ class GoogleDeferredDeepLinksPlugin: FlutterPlugin, MethodCallHandler {
   override fun onMethodCall(call: MethodCall, result: Result) {
     if (call.method == "onStart"){
 
-      println("SI PUDE ENTRAAAAAAAAR")
+      println()
+      Log.d("GoogleDeferredDeepLinksPlugin", "SI PUDE ENTRAAAAAAAAR al metodo onStart")
 
       val sp = context.getSharedPreferences(
               "google.analytics.deferred.deeplink.prefs",
@@ -57,6 +58,9 @@ class GoogleDeferredDeepLinksPlugin: FlutterPlugin, MethodCallHandler {
   }
 
   override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {
+    Log.d("GoogleDeferredDeepLinksPlugin", "Metodo onDetachedFromEngine Se inicio correctamente")
+    Log.d("GoogleDeferredDeepLinksPlugin", "Estado de listener : $listener")
+
     if ( listener != null ){
       val sp = binding.applicationContext.getSharedPreferences(
               "google.analytics.deferred.deeplink.prefs",
@@ -69,6 +73,8 @@ class GoogleDeferredDeepLinksPlugin: FlutterPlugin, MethodCallHandler {
   }
 
   private fun deepLinkChecker(@NonNull sp: SharedPreferences): Boolean{
+    Log.d("GoogleDeferredDeepLinksPlugin", "Metodo deepLinkChecker Se inicio correctamente")
+
     val markSP =
             context.getSharedPreferences("google_ads_deferred_deep_link.mark", Context.MODE_PRIVATE)
     val deepLink: String? = sp.getString("deeplink", null)
