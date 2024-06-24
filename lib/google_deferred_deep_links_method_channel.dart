@@ -30,7 +30,7 @@ class MethodChannelGoogleDeferredDeepLinks extends GoogleDeferredDeepLinksPlatfo
 
   @override
   Future<String?> onStart() async {
-    if (_streamController.hasListener){
+    if (!_streamController.hasListener){
       throw Exception(
         'Before calling onStart(), you should listen to deferredDeepLinkStream to get the result deferred deep link'
       );
