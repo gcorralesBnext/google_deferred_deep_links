@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.text.TextUtils
 import androidx.annotation.NonNull
+import android.util.Log
 
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.plugin.common.MethodCall
@@ -31,7 +32,6 @@ class GoogleDeferredDeepLinksPlugin: FlutterPlugin, MethodCallHandler {
   override fun onMethodCall(call: MethodCall, result: Result) {
     if (call.method == "onStart"){
 
-      println()
       Log.d("GoogleDeferredDeepLinksPlugin", "SI PUDE ENTRAAAAAAAAR al metodo onStart")
 
       val sp = context.getSharedPreferences(
