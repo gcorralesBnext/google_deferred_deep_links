@@ -29,15 +29,15 @@ class GoogleDeferredDeepLinksPlugin: FlutterPlugin, MethodCallHandler {
   }
 
   override fun onMethodCall(call: MethodCall, result: Result) {
-    if (call.method = "onStart"){
-      
+    if (call.method == "onStart"){
+
       println("SI PUDE ENTRAAAAAAAAR")
 
       val sp = context.getSharedPreferences(
               "google.analytics.deferred.deeplink.prefs",
               Context.MODE_PRIVATE
       )
-      val isEmpty = checkDeepLink(sp)
+      val isEmpty = deepLinkChecker(sp)
       if (isEmpty) {
         if (listener != null) {
           sp.unregisterOnSharedPreferenceChangeListener(listener);
