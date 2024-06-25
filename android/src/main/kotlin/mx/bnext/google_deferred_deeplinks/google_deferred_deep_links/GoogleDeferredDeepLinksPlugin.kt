@@ -55,6 +55,8 @@ class GoogleDeferredDeepLinksPlugin: FlutterPlugin, MethodCallHandler {
                   }
                 }
         sp.registerOnSharedPreferenceChangeListener(listener);
+        Log.d("GoogleDeferredDeepLinksPlugin", "Estado de listener en la Funcion onStart : $listener")
+
       }
       result.success("Success")
     }else{
