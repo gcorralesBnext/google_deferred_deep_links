@@ -50,6 +50,7 @@ class GoogleDeferredDeepLinksPlugin: FlutterPlugin, MethodCallHandler {
         }
         listener =
                 SharedPreferences.OnSharedPreferenceChangeListener { prefs: SharedPreferences, key: String ->
+                  Log.d("GoogleDeferredDeepLinksPlugin", "Estado de key en el listenner de onStart : $listener")
                   if (key == "deeplink") {
                     deepLinkChecker(prefs)
                   }
